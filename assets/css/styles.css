@@ -231,6 +231,12 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   align-items: center;
   justify-content: center;
 }
+.home__social-icon img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .home__social-icon:hover {
   background: var(--primary);
   color: #fff;
@@ -251,7 +257,6 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   border: 6px solid #fff;
 }
 
-/* Responsive: stack on mobile, text never overlays image */
 @media (max-width: 1200px) {
   .home {
     grid-template-columns: 1fr 320px;
@@ -333,26 +338,27 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   margin: 0 auto;
 }
 
-/* ===== MODERN GRID SKILLS ===== */
+/* ===== MODERN SKILLS GRID PROFESSIONAL ===== */
+.skills__category {
+  margin-bottom: 2.5rem;
+}
+.skills__category-title {
+  font-size: 1.19rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: .02em;
+  text-align: left;
+}
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 2.5rem;
-  margin-top: 2.5rem;
-  align-items: center;
+  gap: 1.5rem 2.2rem;
+  align-items: stretch;
   justify-items: center;
+  margin-bottom: 0.9rem;
 }
-@media (max-width: 900px) {
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1.5rem;
-  }
-}
-@media (max-width: 600px) {
-  .skills__grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
+.skills__grid--3col {
+  grid-template-columns: repeat(3, 1fr);
 }
 .skills__item {
   display: flex;
@@ -361,50 +367,80 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   justify-content: flex-start;
   background: var(--card-bg);
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 1.3rem 1.2rem 1rem 1.2rem;
-  transition: box-shadow var(--transition), transform var(--transition);
+  box-shadow: 0 4px 24px rgba(14, 36, 49, 0.09);
+  padding: 1.2rem 1.1rem 1rem 1.1rem;
   min-width: 110px;
-  min-height: 110px;
+  min-height: 115px;
+  position: relative;
+  transition: 
+    box-shadow 0.21s cubic-bezier(.4,0,.2,1),
+    transform 0.21s cubic-bezier(.4,0,.2,1),
+    border-color 0.18s cubic-bezier(.4,0,.2,1);
+  border: 1.5px solid transparent;
+  cursor: default;
 }
-.skills__item:hover {
-  box-shadow: 0 8px 28px rgba(36,82,255,0.13);
-  transform: translateY(-4px) scale(1.045);
+.skills__item:hover, .skills__item:focus-within {
+  box-shadow: 0 12px 32px rgba(36,82,255,0.14);
+  transform: translateY(-5px) scale(1.04);
+  border: 1.5px solid var(--primary);
+  z-index: 2;
 }
 .skills__logo {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin-bottom: 1.05rem;
   border-radius: 8px;
   background: #f2f4ff;
-  box-shadow: 0 2px 12px rgba(36,82,255,0.07);
-  transition: box-shadow var(--transition), background var(--transition);
+  box-shadow: 0 2px 12px rgba(36,82,255,0.05);
+  transition: box-shadow 0.18s, background 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.skills__item:hover .skills__logo {
+.skills__logo--whitebg {
+  background: #fff !important;
+  box-shadow: 0 2px 16px rgba(36,82,255,0.03);
+  border: 1px solid #eaeaea;
+}
+.skills__item:hover .skills__logo, .skills__item:focus-within .skills__logo {
   background: #e7f0ff;
-  box-shadow: 0 4px 24px rgba(36,82,255,0.12);
+  box-shadow: 0 4px 22px rgba(36,82,255,0.10);
 }
 .skills__label {
   font-size: 1.08rem;
   font-weight: 600;
   color: var(--primary-dark);
-  margin-top: 0.2rem;
-  letter-spacing: 0.1px;
+  margin-top: 0.19rem;
+  letter-spacing: 0.08px;
+  text-align: center;
+  user-select: none;
+}
+@media (max-width: 900px) {
+  .skills__grid--3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 600px) {
+  .skills__grid--3col {
+    grid-template-columns: 1fr;
+  }
   .skills__item {
-    min-width: 90px;
-    min-height: 90px;
-    padding: 0.9rem 0.7rem 0.7rem 0.7rem;
+    min-width: 85px;
+    min-height: 85px;
+    padding: 0.8rem 0.5rem 0.5rem 0.5rem;
   }
   .skills__logo {
-    width: 38px;
-    height: 38px;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.4rem;
+  }
+  .skills__category-title {
+    font-size: 1.08rem;
     margin-bottom: 0.5rem;
   }
   .skills__label {
-    font-size: 0.97rem;
+    font-size: 0.93rem;
   }
 }
 
