@@ -332,54 +332,83 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   max-width: 340px;
   margin: 0 auto;
 }
-.skills__data {
-  display: flex;
+
+/* ===== MODERN GRID SKILLS ===== */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  margin-top: 2.5rem;
   align-items: center;
-  justify-content: space-between;
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+.skills__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background: var(--card-bg);
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  border-radius: 0.5rem;
-  padding: 0.65rem 1rem;
-  margin-bottom: 1.1rem;
-  position: relative;
+  padding: 1.3rem 1.2rem 1rem 1.2rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+  min-width: 110px;
+  min-height: 110px;
 }
-.skills__names {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
+.skills__item:hover {
+  box-shadow: 0 8px 28px rgba(36,82,255,0.13);
+  transform: translateY(-4px) scale(1.045);
 }
-.skills__icon {
-  font-size: 2rem;
-  color: var(--primary);
+.skills__logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #f2f4ff;
+  box-shadow: 0 2px 12px rgba(36,82,255,0.07);
+  transition: box-shadow var(--transition), background var(--transition);
 }
-.skills__bar {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-color: var(--primary);
-  height: 0.22rem;
-  border-radius: 0.5rem;
-  z-index: var(--z-back);
-  opacity: 0.7;
-  animation: growBar 1.5s cubic-bezier(0.4,0,0.2,1);
+.skills__item:hover .skills__logo {
+  background: #e7f0ff;
+  box-shadow: 0 4px 24px rgba(36,82,255,0.12);
 }
-.skills__html { width: 95%; }
-.skills__css { width: 88%; }
-.skills__js { width: 75%; }
-.skills__ux { width: 80%; }
-.skills__python { width: 90%; }
-.skills__aws { width: 70%; }
-.skills__percentage {
-  font-weight: 700;
-  color: var(--primary);
-  font-size: 1.1rem;
-  min-width: 38px;
-  text-align: right;
+.skills__label {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-top: 0.2rem;
+  letter-spacing: 0.1px;
 }
-@keyframes growBar {
-  from { width: 0; }
+@media (max-width: 600px) {
+  .skills__item {
+    min-width: 90px;
+    min-height: 90px;
+    padding: 0.9rem 0.7rem 0.7rem 0.7rem;
+  }
+  .skills__logo {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0.5rem;
+  }
+  .skills__label {
+    font-size: 0.97rem;
+  }
 }
 
+/* ===== PROJECTS, CONTACT, FOOTER... (rest same as before) ===== */
 .work__container {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
