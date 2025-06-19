@@ -440,6 +440,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   display: flex !important;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch; /* <-- Added to force equal height */
   gap: 2.2rem;
   padding: 0 1rem;
 }
@@ -455,6 +456,8 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  height: 100%;       /* <-- Added to make all skills cards same height */
 }
 .skills__category-title {
   font-size: 1.12rem;
@@ -539,6 +542,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
     min-width: 0;
     width: 100%;
     margin-bottom: 0.7rem;
+    height: auto;
   }
   .skills__row {
     justify-content: flex-start;
@@ -551,6 +555,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-family: inherit; font-weight: 700; }
   }
   .skills__category {
     padding: 1rem 0.5rem 0.6rem 0.5rem;
+    height: auto;
   }
   .skills__row {
     gap: 0.5rem;
